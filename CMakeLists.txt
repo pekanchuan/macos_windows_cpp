@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.27)
+project(macos_windows_cpp)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(macos_windows_cpp main.cpp)
