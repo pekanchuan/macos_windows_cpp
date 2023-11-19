@@ -48,3 +48,6 @@ _deps
 .idea
 cmake-build-debug/
 **/.DS_Store
+
+.vs
+out
