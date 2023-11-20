@@ -7,4 +7,5 @@ add_executable(macos_windows_cpp main.cpp
         primer/Sales_data.cpp
         primer/Sales_data.h
         primer/exercises.cpp
-        primer/exercises.h)
+        primer/exercises.h
+        primer/Sales_item.h)
