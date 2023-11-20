@@ -4,19 +4,37 @@
 #include <vector>
 
 #include "primer/exercises.h"
+#include "primer/Sales_item.h"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
-	int sum = 0, value = 0;
+	Sales_item total;
 
-	while (cin >> value)
+	if (cin >> total)
 	{
-		sum += value;
+		Sales_item trans;
+		while (cin >> trans)
+		{
+			if (total.isbn() == trans.isbn())
+			{
+				total += trans;
+			}
+			else
+			{
+				cout << total << endl;
+				total = trans;
+			}
+		}
+		cout << total << endl;
+	}
+	else
+	{
+		cerr << "No data?!" << endl;
+		return -1;
 	}
 
-	cout << "Sum is: " << sum << endl;
 
 	return 0;
 }
