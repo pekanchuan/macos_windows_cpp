@@ -23,21 +23,15 @@ using std::isspace;
 
 #include "primer/Sales_item.h"
 
+int ia[] = { 0,1,2,3,4,5,6,7,8,9 };
+
 int main(int argc, char* argv[]) {
-    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
-    for (vector<int>::const_iterator it = v.begin();
-         it != v.end();
-         ++it)
-        cout << *it << " ";
-    cout << endl;
+	cout << sizeof(ia) << " " << sizeof(*ia) << endl;
+	constexpr size_t sz = sizeof(ia) / sizeof(*ia);
 
-    for (auto it = v.begin(); it != v.end(); ++it)
-        cout << *it << ", ";
-    cout << endl;
+	int arr2[sz];
 
-    for (const auto&value: v)
-        cout << value << "-";
-    cout << endl;
+	cout << "ia size: " << sz << endl;
 
-    return 0;
+	return 0;
 }
