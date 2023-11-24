@@ -30,29 +30,28 @@ using std::isspace;
 
 using std::runtime_error;
 
+#include <initializer_list>
+
+using std::initializer_list;
+
+#include <sstream>
+
+using std::ostringstream;
+
+#include <iterator>
+
+using std::begin;
+using std::end;
+
 #include "primer/Sales_item.h"
 #include "primer/Sales_data.h"
+#include "primer/LocalMath.h"
+#include "primer/make_plural.h"
+
 
 
 int main(int argc, char *argv[]) {
-    vector<int> ivec;
-    vector<int> v = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    for (auto &r: v)
-        r *= 2;
-
-    for (int r: v)
-        cout << r << " ";
-    cout << endl;
-
-    char letter = 'A';
-    const char *p = &letter;
-//    *p = 'B';
-    p = nullptr;
-
-    char * const cp = &letter;
-    *cp = 'B';
-//    cp = nullptr;
 
     return 0;
 }
