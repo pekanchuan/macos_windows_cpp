@@ -11,6 +11,7 @@ using std::vector;
 using std::cin;
 using std::cout;
 using std::endl;
+using std::cerr;
 
 #include <string>
 
@@ -49,9 +50,7 @@ using std::end;
 #include "primer/make_plural.h"
 
 
-
 int main(int argc, char *argv[]) {
-
 
     return 0;
 }
