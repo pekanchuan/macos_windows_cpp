@@ -14,4 +14,5 @@ add_executable(macos_windows_cpp main.cpp
         primer/Account.cpp
         primer/Account.h
         primer/Debug.cpp
-        primer/Debug.h)
+        primer/Debug.h
+        primer/Screen.h)
