@@ -3,38 +3,68 @@
 //
 
 #include <iostream>
+
+using std::istream;
+using std::ostream;
+
 #include <string>
+
 #include "Sales_data.h"
 
+Sales_data::Sales_data(std::istream &is) {
+    is >> *this;
+}
 
-int foo() {
-    Sales_data data1, data2;
-
-    double price = 0;
-
-    std::cin >> data1.bookNo >> data1.units_sold >> price;
-    data1.revenue = data1.units_sold * price;
-
-    std::cin >> data2.bookNo >> data2.units_sold >> price;
-    data2.revenue = data2.units_sold * price;
-
-    if (data1.bookNo == data2.bookNo) {
-        unsigned totalCnt = data1.units_sold + data2.units_sold;
-        double totalRevenue = data1.revenue + data2.revenue;
-
-        std::cout << data1.bookNo << " " << totalCnt
-                << " " << totalRevenue << " ";
-        if (totalCnt != 0) {
-            std::cout << totalRevenue / totalCnt << std::endl;
-        }
-        else {
-            std::cout << "(no sales)" << std::endl;
-        }
-
+double Sales_data::avg_price() const {
+    if (units_sold)
+        return revenue / units_sold;
+    else
         return 0;
-    }
-    else {
-        std::cerr << "Data must refer to the same ISBN" << std::endl;
-        return -1;
-    }
+}
+
+Sales_data &Sales_data::operator+=(const Sales_data &rhs) {
+    units_sold += rhs.units_sold;
+    revenue += rhs.revenue;
+    return *this;
+}
+
+Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
+    Sales_data sum = lhs;
+    sum += rhs;
+    return sum;
+}
+
+istream &operator>>(istream &is, Sales_data &item) {
+    double price;
+    is >> item.bookNo >> item.units_sold >> price;
+    if (is)
+        item.revenue = item.units_sold * price;
+    else
+        item = Sales_data();
+    return is;
+}
+
+ostream &operator<<(ostream &os, const Sales_data &item) {
+    os << item.isbn() << " " << item.units_sold << " "
+       << item.revenue << " " << item.avg_price();
+    return os;
+}
+
+istream &read(istream &is, Sales_data &item) {
+    double price = 0;
+    is >> item.bookNo >> item.units_sold >> price;
+    item.revenue = price * item.units_sold;
+    return is;
+}
+
+ostream &print(ostream &os, const Sales_data &item) {
+    os << item.isbn() << " " << item.units_sold << " "
+       << item.revenue << " " << item.avg_price();
+    return os;
+}
+
+Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
+    Sales_data sum = lhs;
+    sum += rhs;
+    return sum;
 }
