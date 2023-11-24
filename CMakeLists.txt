@@ -10,4 +10,6 @@ add_executable(macos_windows_cpp main.cpp
         primer/LocalMath.cpp
         primer/LocalMath.h
         primer/make_plural.cpp
-        primer/make_plural.h)
+        primer/make_plural.h
+        primer/Account.cpp
+        primer/Account.h)
