@@ -12,4 +12,6 @@ add_executable(macos_windows_cpp main.cpp
         primer/make_plural.cpp
         primer/make_plural.h
         primer/Account.cpp
-        primer/Account.h)
+        primer/Account.h
+        primer/Debug.cpp
+        primer/Debug.h)
