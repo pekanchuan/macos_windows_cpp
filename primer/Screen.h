@@ -16,6 +16,8 @@ public:
 
     Screen(pos ht, pos wd, char c) : height(ht), width(wd), contents(ht * wd, c) {}
 
+    friend class Window_mgr;
+
     Screen(pos ht = 0, pos wd = 0) :
             cursor(0), height(ht), width(wd), contents(ht * wd, ' ') {}
 
